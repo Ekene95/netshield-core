@@ -29,7 +29,7 @@ export async function annotateFindings(findings: SecretFinding[]): Promise<void>
   
   const commentBody = 
     `<div align="center">\n\n` +
-    `<img src="${logoUrl}" alt="NetShield" width="130"/>\n\n` +
+    `<img src="${logoUrl}" alt="NetShield" width="80"/>\n\n` +
     `## NetShield: Secrets Detected\n\n` +
     `</div>\n\n` +
     `---\n\n` +
@@ -92,7 +92,7 @@ export function reportSuccess(): void {
   
   core.summary
     .addHeading('NetShield: Passed', 2)
-    .addRaw(`<div align="center"><img src="${logoUrl}" alt="NetShield" width="100"/></div>`)
+    .addRaw(`<div align="center"><img src="${logoUrl}" alt="NetShield" width="80"/></div>`)
     .addBreak()
     .addRaw('✅ **No secrets detected in this pull request.**')
     .write();

@@ -29984,7 +29984,7 @@ async function annotateFindings(findings) {
     // Use your custom NetShield logo from the repository
     const logoUrl = `https://raw.githubusercontent.com/${github.context.repo.owner}/${github.context.repo.repo}/test-secrets/.github/assets/netshield-logo.jpeg`;
     const commentBody = `<div align="center">\n\n` +
-        `<img src="${logoUrl}" alt="NetShield" width="130"/>\n\n` +
+        `<img src="${logoUrl}" alt="NetShield" width="80"/>\n\n` +
         `## NetShield: Secrets Detected\n\n` +
         `</div>\n\n` +
         `---\n\n` +
@@ -30043,7 +30043,7 @@ function reportSuccess() {
     const logoUrl = `https://raw.githubusercontent.com/${github.context.repo.owner}/${github.context.repo.repo}/test-secrets/.github/assets/netshield-logo.jpeg`;
     core.summary
         .addHeading('NetShield: Passed', 2)
-        .addRaw(`<div align="center"><img src="${logoUrl}" alt="NetShield" width="100"/></div>`)
+        .addRaw(`<div align="center"><img src="${logoUrl}" alt="NetShield" width="80"/></div>`)
         .addBreak()
         .addRaw('✅ **No secrets detected in this pull request.**')
         .write();

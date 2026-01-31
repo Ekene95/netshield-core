@@ -25,7 +25,7 @@ export async function annotateFindings(findings: SecretFinding[]): Promise<void>
     .join('\n');
   
   // Use your custom NetShield logo from the repository
-  const logoUrl = `https://raw.githubusercontent.com/${github.context.repo.owner}/${github.context.repo.repo}/test-secrets/.github/assets/netshield-logo.jpeg`;
+  const logoUrl = `https://raw.githubusercontent.com/${github.context.repo.owner}/${github.context.repo.repo}/master/.github/assets/netshield-logo.jpeg`;
   
   const commentBody = 
     `<div align="center">\n\n` +
@@ -88,7 +88,7 @@ export function reportSuccess(): void {
   core.info('✅ NetShield: No secrets detected');
   
   // Use custom logo for success too
-  const logoUrl = `https://raw.githubusercontent.com/${github.context.repo.owner}/${github.context.repo.repo}/test-secrets/.github/assets/netshield-logo.jpeg`;
+  const logoUrl = `https://raw.githubusercontent.com/${github.context.repo.owner}/${github.context.repo.repo}/master/.github/assets/netshield-logo.jpeg`;
   
   core.summary
     .addHeading('NetShield: Passed', 2)

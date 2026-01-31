@@ -1,16 +1,22 @@
-# Compiled class file
+# Compiled class files
 *.class
 
-# Log file
+# Log files
 *.log
 
-# BlueJ files
-*.ctxt
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
-# Package Files #
+# Spring Boot
 *.jar
 *.war
 *.nar
@@ -19,6 +25,32 @@
 *.tar.gz
 *.rar
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
-replay_pid*
+# IDE
+.idea/
+*.iml
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+.classpath
+.project
+.settings/
+*.iws
+*.ipr
+
+# Environment files (NEVER COMMIT THESE)
+.env
+.env.local
+.env.*.local
+*.env
+
+# NetShield
+.github/actions/netshield/node_modules/
+.github/actions/netshield/gitleaks
+.github/actions/netshield/gitleaks.tar.gz
+.github/actions/netshield/gitleaks-report.json
+
+# H2 Database
+*.db
+*.h2.db

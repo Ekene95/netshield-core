@@ -29977,19 +29977,24 @@ async function annotateFindings(findings) {
             title: 'NetShield: Secret Detected'
         });
     }
-    // 2. Build the Markdown Body for the PR Comment with custom logo
+    // 2. Build the Markdown Body for the PR Comment with polished logo
     const tableRows = findings
         .map(f => `| ${f.file} | ${f.line} | ${f.rule} |`)
         .join('\n');
     // Use your custom NetShield logo from the repository
     const logoUrl = `https://raw.githubusercontent.com/${github.context.repo.owner}/${github.context.repo.repo}/test-secrets/.github/assets/netshield-logo.jpeg`;
-    const commentBody = `<img src="${logoUrl}" alt="NetShield" width="100"/>\n\n` +
+    const commentBody = `<div align="center">\n\n` +
+        `<img src="${logoUrl}" alt="NetShield" width="130"/>\n\n` +
         `## NetShield: Secrets Detected\n\n` +
-        `NetShield blocked this PR because **${findings.length}** secret(s) were found.\n\n` +
+        `</div>\n\n` +
+        `---\n\n` +
+        `⚠️ **NetShield blocked this PR because ${findings.length} secret(s) were found.**\n\n` +
         `| File | Line | Rule |\n` +
-        `| :--- | :--- | :--- |\n` +
+        `| :--- | :---: | :--- |\n` +
         `${tableRows}\n\n` +
-        `**Action Required:** Remove the detected secrets and push new commits.`;
+        `---\n\n` +
+        `### 🔧 Action Required\n\n` +
+        `Remove the detected secrets and push new commits. NetShield will automatically re-scan your changes.`;
     // 3. Post the Comment using Octokit
     try {
         const token = core.getInput('token') || process.env.GITHUB_TOKEN;
@@ -30038,9 +30043,9 @@ function reportSuccess() {
     const logoUrl = `https://raw.githubusercontent.com/${github.context.repo.owner}/${github.context.repo.repo}/test-secrets/.github/assets/netshield-logo.jpeg`;
     core.summary
         .addHeading('NetShield: Passed', 2)
-        .addRaw(`<img src="${logoUrl}" alt="NetShield" width="80"/>`)
+        .addRaw(`<div align="center"><img src="${logoUrl}" alt="NetShield" width="100"/></div>`)
         .addBreak()
-        .addRaw('No secrets detected in this pull request.')
+        .addRaw('✅ **No secrets detected in this pull request.**')
         .write();
 }
 

@@ -22,3 +22,10 @@ jobs:
       
       - name: Run NetShield
         uses: ./.github/actions/netshield
+
+      - name: Post Summary to PR
+        if: always()
+        run: |
+          gh pr comment ${{ github.event.pull_request.number }} --body-file $GITHUB_STEP_SUMMARY
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
